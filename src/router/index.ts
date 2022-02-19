@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
-import menuOption from "@/cfg/menuOption";
+import menuOption from "@/cfg/menuCfg";
 
 const Router = createRouter({
   history: createWebHashHistory(),
@@ -12,8 +12,8 @@ const Router = createRouter({
     {
       path: '/:key',
       name: 'Mains',
-      component: () => import('@/views/home/index.vue')
-    }
+      component: () => import('@/views/index.vue')
+    },
   ]
 });
 

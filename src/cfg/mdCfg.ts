@@ -1,3 +1,5 @@
-export default {
-    path: 'src/md'
+export const mdcfg: MdCfg = {
+    path: 'src/md',
+    documentName: 'xps-doc-template'
 }
+export default mdcfg

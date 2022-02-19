@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, defineAsyncComponent, defineComponent, watch, shallowRef } from "vue"
 import { NMenu, NLayout, NLayoutSider, NAffix, useMessage } from "naive-ui"
-import menuOption, { documentName } from "@/cfg/menuOption"
+import menuOption from "@/cfg/menuCfg"
 import mdCfg from "@/cfg/mdCfg";
 import { useRoute, useRouter } from "vue-router";
 
@@ -22,8 +22,6 @@ let menuKey = ref('')
 
 // all md modules
 const modules = import.meta.glob('/**/**.md')
-
-console.log(modules);
 
 // md文件
 let Md = shallowRef()
@@ -48,7 +46,7 @@ let mdChange = (pkey: string) => {
     } catch (error: any) {
         nmessage.error(error.message)
         Md.value = defineComponent({
-            render: () => { }
+            render: () => {}
         })
         menuKey.value = STRING_NULL;
     }
@@ -56,9 +54,7 @@ let mdChange = (pkey: string) => {
 
 mdChange(route.params.key as string)
 
-let menuUpdate = (key: string) => {
-    toRoute.push({ name: 'Mains', params: { key } })
-}
+let menuUpdate = (key: string) => toRoute.push({ name: 'Mains', params: { key } })
 
 </script>
 <style lang="scss">
@@ -69,10 +65,8 @@ let menuUpdate = (key: string) => {
             <div v-if="!ismb()">
                 <n-layout-sider>
                     <n-affix :trigger-top="30">
-                        <h1>{{ documentName }}</h1>
+                        <h1>{{ mdCfg.documentName }}</h1>
                         <n-menu
-                            :accordion="true"
-                            dropdown-placement="right-start"
                             :default-expand-all="true"
                             :options="menuOption"
                             :value="menuKey"
@@ -85,8 +79,6 @@ let menuUpdate = (key: string) => {
                 <md></md>
                 <div v-if="ismb()">
                     <n-menu
-                        :accordion="true"
-                        dropdown-placement="right-start"
                         :default-expand-all="true"
                         :options="menuOption"
                         :value="menuKey"

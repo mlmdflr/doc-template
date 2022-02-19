@@ -1,6 +1,5 @@
-export const documentName = 'xps-doc-template'
-
-export default [
+import type { MenuOption } from "naive-ui";
+export const menuOption: MenuOption[] = [
     {
         key: 'HelloWorld',
         label: '示范',
@@ -8,7 +7,7 @@ export default [
             {
                 key: 'child1',
                 label: '子项示范1',
-                children:[
+                children: [
                     {
                         key: 'child2',
                         label: '子项示范2',
@@ -22,3 +21,4 @@ export default [
         ]
     }
 ]
+export default menuOption
