@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
-import menuOption from "@/cfg/menuCfg";
+import { defaultKey } from "@/cfg/menuCfg";
 
 const Router = createRouter({
   history: createWebHashHistory(),
@@ -7,7 +7,7 @@ const Router = createRouter({
     {
       path: '/',
       name: 'Main',
-      redirect: '/' + menuOption[0].key
+      redirect: '/' + defaultKey
     },
     {
       path: '/:key',
