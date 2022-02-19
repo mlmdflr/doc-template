@@ -10,7 +10,14 @@ import { getExternal } from "./scripts";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-
+  css: {
+    preprocessorOptions: {
+      scss: {
+        //预处理
+        additionalData: '@import "@/scss/index.scss";@import "@/scss/mixin.scss";'
+      }
+    }
+  },
   plugins: [
     createHtmlPlugin({
       minify: true,

@@ -4,7 +4,7 @@ import { NMessageProvider } from 'naive-ui';
 </script>
 
 <style lang="scss">
-@import url("highlight.js/scss/atom-one-dark.scss");
+@import "highlight.js/scss/github-dark.scss";
 </style>
 
 <template>
